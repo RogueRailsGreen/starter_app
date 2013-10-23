@@ -1,0 +1,11 @@
+pairs:
+  # <initials>: <Firstname> <Lastname>[; <email-id>]
+  ve: Vyki Englert; vykster
+  nw: Nathan Wiebe; nwiebe 
+  jw: Jeff Wood; a1ph4g33k
+  gs: Geoff Stark; geoffstark
+email:
+  prefix: pair
+  domain: pivotallabs.com
+  # no_solo_prefix: true
+#global: true

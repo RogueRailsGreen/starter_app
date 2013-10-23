@@ -32,3 +32,5 @@ config/database.yml
 
 # Ignore Sublime Project files
 *.sublime-project
+
+Vagrantfile.nathan

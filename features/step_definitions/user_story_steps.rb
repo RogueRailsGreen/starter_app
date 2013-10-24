@@ -1,4 +1,4 @@
 
-Then(/^there is (\d+) story$/) do |the_number|
+Then(/^there (is|are) (\d+) stor(.*)$/) do |is_are, the_number, junk|
   Story.count.should eq(the_number.to_i)
 end

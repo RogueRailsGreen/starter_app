@@ -11,4 +11,10 @@ Scenario: Add a New Story
 	And I click "Save"
 	Then there is 1 story
 
-	
+Scenario: Attempt to Add Invalid Story	
+	Given I visit "/stories/new"
+	When I fill in "In order to" with "assist in the organization of stories"
+	And I fill in "As a" with "user"
+	And I click "Save"
+	Then there are 0 stories
+	And I should see "I want to can't be blank"

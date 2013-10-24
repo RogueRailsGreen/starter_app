@@ -6,6 +6,10 @@ class StoriesController < ApplicationController
 
   def create
    @story = Story.create(params[:story].permit(:in_order_to, :as_a, :i_want_to))
-   redirect_to new_story_path 
+   if @story.errors.empty?
+     redirect_to new_story_path 
+   else
+     render :new
+   end
   end
 end

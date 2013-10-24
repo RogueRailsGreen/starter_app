@@ -1,17 +1,12 @@
 
-Given(/^I visit the home page$/) do
-  visit "/"
+
+Given(/^a project exists with name: "(.*?)", description: "(.*?)"$/) do |name, description|
+	t = Project.new
+	t.name = name
+	t.description = description
+	t.save!
 end
 
-Then(/^I should see "(.*?)"$/) do |text|
-  page.should have_content( text )
+Then(/^the project at index "(\d+)" should have the name "(.*?)"$/) do |index, name|
+	pending # TODO: Write this.
 end
-
-When(/^I click "(.*?)"$/) do |link_text|
-  click_on link_text
-end
-
-When(/^I fill in "(.*?)" with "(.*?)"$/) do |field, value|
-  fill_in field, with: value
-end
-

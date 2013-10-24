@@ -34,3 +34,6 @@ config/database.yml
 *.sublime-project
 
 Vagrantfile.nathan
+
+tags
+

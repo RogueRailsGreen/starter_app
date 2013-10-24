@@ -1,4 +1,13 @@
 <%= form_for @story do |f| %>
+  <% if @story.errors.any? %>
+    <ul>
+    <% @story.errors.full_messages.each do |error_message| %>
+      <li>
+        <%= error_message %>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
   <%= f.label :in_order_to %>
   <%= f.text_field :in_order_to %>
   <br/>

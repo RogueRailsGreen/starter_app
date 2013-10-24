@@ -10,6 +10,10 @@ When(/^I click "(.*?)"$/) do |button_name|
   click_on button_name
 end
 
-Then(/^there is (\d+) story$/) do |the_number|
+Then(/^there (is|are) (\d+) stor(.*)$/) do |is_are, the_number, junk|
   Story.count.should eq(the_number.to_i)
+end
+
+Then(/^I should see "(.*?)"$/) do |message|
+  page.should have_content(message)
 end

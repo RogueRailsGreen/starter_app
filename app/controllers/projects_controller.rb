@@ -3,7 +3,18 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all
+    @selected_field = params[:sort_field] || 'name'
+    @selected_direction = params[:sort_direction] || '' # Empty string implies Ascending.
+    @other_direction = @selected_direction == '' ? 'DESC' : ''
+    if @selected_field == 'name'
+      @name_dirn = @other_direction
+      @description_dirn = ''
+    elsif @selected_field == 'description'
+      @description_dirn = @other_direction
+      @name_dirn = ''
+    end
+
+    @projects = Project.all( order: "#{ @selected_field } #{ @selected_direction }" )
   end
 
   # GET /projects/1

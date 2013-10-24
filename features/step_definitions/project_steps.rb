@@ -8,5 +8,5 @@ Given(/^a project exists with name: "(.*?)", description: "(.*?)"$/) do |name, d
 end
 
 Then(/^the project at index "(\d+)" should have the name "(.*?)"$/) do |index, name|
-	pending # TODO: Write this.
+	page.all("//table/tbody/tr")[index.to_i].should have_content( name )
 end

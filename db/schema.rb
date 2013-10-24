@@ -20,4 +20,12 @@ ActiveRecord::Schema.define(version: 20131024170102) do
     t.datetime "updated_at"
   end
 
+  create_table "stories", force: true do |t|
+    t.string   "in_order_to"
+    t.string   "as_a"
+    t.string   "i_want_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end

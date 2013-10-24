@@ -1,0 +1,12 @@
+<%= form_for @story do |f| %>
+  <%= f.label :in_order_to %>
+  <%= f.text_field :in_order_to %>
+  <br/>
+  <%= f.label :as_a %>
+  <%= f.text_field :as_a %>
+  <br/>
+  <%= f.label :i_want_to %>
+  <%= f.text_field :i_want_to %>
+  <br/>
+  <%= f.submit 'Save' %>
+<% end %>

@@ -4,13 +4,13 @@ Feature: Story Status
   I want to be able to assign a status to a story
 
 Background:
-  Given a project exists with name: "Foo", description: "Bar"
-  And I have a story on project "Foo"
+  Given I clear all statuses
   And I have a status with the name "started"
-  And I have a status with the name "unstarted"
+  And a project exists with name: "Foo", description: "Bar"
+  And a story exists with project: the project
   And I am on the edit screen
 
 Scenario: Assign status to a Story 
-  When I select "started" from status list
+  When I select "unstarted" from status list
   And I click on "Save"
-  Then the story status should be "started"
+  Then the story status should be "unstarted"

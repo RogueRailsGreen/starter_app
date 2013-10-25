@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025180449) do
+ActiveRecord::Schema.define(version: 20131025183922) do
+
+  create_table "comments", force: true do |t|
+    t.integer  "story_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["story_id"], name: "index_comments_on_story_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -32,8 +41,8 @@ ActiveRecord::Schema.define(version: 20131025180449) do
     t.string   "i_want_to"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status_id"
     t.integer  "project_id"
+    t.integer  "status_id"
     t.integer  "business_value"
     t.integer  "complexity_value"
   end

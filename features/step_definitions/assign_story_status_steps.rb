@@ -1,9 +1,9 @@
-Given(/^I have a story on project "(.*?)"$/) do |project_name|
-  @story = FactoryGirl.create(:story, project: Project.find_by_name(project_name))
+Given(/^I am on the edit screen$/) do
+  visit edit_story_path(Story.first)
 end
 
-Given(/^I am on the edit screen$/) do
-  visit edit_story_path(@story)
+Given(/^I clear all statuses$/) do
+  Status.delete_all
 end
 
 Given(/^I have a status with the name "(.*?)"$/) do |status_name|
@@ -19,5 +19,5 @@ When(/^I click on "(.*?)"$/) do |link_text|
 end
 
 Then(/^the story status should be "(.*?)"$/) do |status_name|
-  @story.reload.status.name.should eq(status_name)
+  Story.first.reload.status.name.should eq(status_name)
 end

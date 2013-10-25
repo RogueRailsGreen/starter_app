@@ -1,0 +1,76 @@
+<div class="row">
+  <%= form_for @story, html: {class: "large-12 columns"} do |f| %>
+    <% if @story.errors.any? %>
+      <ul>
+      <% @story.errors.full_messages.each do |error_message| %>
+        <li>
+          <%= error_message %>
+        </li>
+      <% end %>
+      </ul>
+    <% end %>
+
+  <div class="row">
+    <div class="large-9 columns">
+      <%= f.hidden_field :project_id %>
+
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :in_order_to, class: 'inline' %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :in_order_to, placeholder: '[Goal]' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :as_a, class: 'inline' %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :as_a, placeholder: '[Stakeholder]' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= f.label :i_want_to, class: 'Inline' %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.text_field :i_want_to, placeholder: '[Behavior]' %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="large-3 columns"> 
+
+    <div class="row">
+        <div class="small-7 columns">
+          <%= f.label :status, class: 'Inline' %>
+        </div>
+        <div class="small-5 columns">
+          <%= f.select :status_id, @statuses %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-8 columns">
+          <%= f.label :business_value, class: 'Inline' %>
+        </div>
+        <div class="small-4 columns">
+          <%= f.number_field :business_value, in: 1..5 %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-8 columns">
+          <%= f.label :complexity_value, class: 'Inline' %>
+        </div>
+        <div class="small-4 columns">
+         <%= f.number_field :complexity_value, in: 1..5 %>
+        </div>
+      </div>
+
+     
+    </div>
+  </div> 
+      <%= f.submit 'Save', class: "small button" %>
+    <% end %>
+</div>

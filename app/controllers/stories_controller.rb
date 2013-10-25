@@ -2,7 +2,6 @@ class StoriesController < ApplicationController
 
   def new
     @statuses = Status.all.collect { |status| [status.name, status.id] }
-
     @story = Story.new(story_params)
     @story.project = Project.find_by_id(params[:project_id])
 

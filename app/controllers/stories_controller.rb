@@ -1,18 +1,20 @@
 class StoriesController < ApplicationController
 
   def new
+    @statuses = Status.all.collect { |status| [status.name, status.id] }
+
     @story = Story.new(story_params)
     @story.project = Project.find_by_id(params[:project_id])
 
     unless @story.project
-      redirect_to projects_path and return
+      redirect_to( projects_path, flash: { error: 'Invalid Project ID provided.' } ) and return
     end
   end
 
   def create
    @story = Story.create(story_params)
    if @story.errors.empty?
-     redirect_to projects_path and return
+     redirect_to( project_path( @story.project ), flash: { notice: 'Story was successfully created.' } ) and return
    else
      render :new
    end
@@ -26,10 +28,14 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
     if @story.update_attributes(story_params)
-      redirect_to edit_story_path(@story)
+      redirect_to( project_path( @story.project ), flash: { notice: 'Story was successfully updated.' } )
     else
       render :edit
     end
+  end
+
+  def show
+    @story = Story.find( params[:id] )
   end
 
   private

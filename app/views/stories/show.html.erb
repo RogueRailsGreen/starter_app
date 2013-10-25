@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Story:&nbsp;</strong>
+  <%= story_summary( @story ) %>
+</p>
+
+<p>
+  <strong>Status:&nbsp;</strong>
+  <%= @story.status.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_story_path( @story ) %> |
+<%= link_to 'Back to Project', project_path( @story.project ) %>

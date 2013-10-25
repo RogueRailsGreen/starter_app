@@ -8,6 +8,9 @@
     <% end %>
     </ul>
   <% end %>
+  <%= f.label :status %>
+  <%= f.select :status_id, @statuses %>
+  <br/>
   <%= f.label :in_order_to %>
   <%= f.text_field :in_order_to %>
   <br/>

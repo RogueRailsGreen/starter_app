@@ -36,7 +36,7 @@ class StoriesController < ApplicationController
 
   def story_params
     if params[:story]
-      params[:story].permit(:in_order_to, :as_a, :i_want_to, :status_id, :project_id)
+      params[:story].permit(:in_order_to, :as_a, :i_want_to, :status_id, :project_id, :business_value, :complexity_value)
     else
       {}
     end

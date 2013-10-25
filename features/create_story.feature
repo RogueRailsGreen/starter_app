@@ -18,6 +18,8 @@ Scenario: Add a New Story
 	When I fill in "In order to" with "assist in the organization of stories"
 	And I fill in "As a" with "user"
 	And I fill in "I want to" with "create a story"
+	And I fill in "Business value" with "1"
+  And I fill in "Complexity value" with "1" 
 	And I click "Save"
 	Then there is 1 story
 

@@ -7,7 +7,7 @@ Background:
   Given I clear all statuses
   And I have a status with the name "started"
   And a project exists with name: "Foo", description: "Bar"
-  And I have a story on project "Foo"
+  And a story exists with project: the project
   And I am on the edit screen
 
 Scenario: Assign status to a Story 

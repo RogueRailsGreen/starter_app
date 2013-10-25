@@ -5,7 +5,7 @@ Feature: Story Comments
 
 Background:
   Given a project exists with name: "Foo", description: "Bar"
-  And I have a story on project "Foo"
+  And a story exists with project: the project
   And I am on the story detail page
 
 Scenario: Comment on a Story
@@ -14,3 +14,5 @@ Scenario: Comment on a Story
   And I click on "Save"
   Then I should see "Comment was successfully created."
 
+Scenario: List Comments for a Story
+  Given a comment exists with story: the story

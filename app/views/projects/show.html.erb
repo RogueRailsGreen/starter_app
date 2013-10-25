@@ -16,7 +16,7 @@
 
 <% @project.stories.each do |story| %>
   <div class="story">
-  	<%= story_summary( story ) %>
+  	<%= story_summary( story ) %> <%= link_to 'Show', story_path( story ) %>
   </div>
 <% end %>
 

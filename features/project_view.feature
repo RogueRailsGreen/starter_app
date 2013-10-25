@@ -14,7 +14,7 @@ Feature: Project View
     And I should see "Add Story"
 
   Scenario: View Project Info ( non empty project )
-    Given project "A project" has a story with in_order_to: "foo", as_a: "bar", i_want_to: "bam"
+    Given project "A project" has a story with in_order_to: "foo", as_a: "bar", i_want_to: "bam", business_value: "3", complexity_value: "1" 
     When I click "Show"
     Then I should see "Project: A project"
     And I should see "1 Story"

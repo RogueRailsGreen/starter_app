@@ -23,10 +23,10 @@
   <%= f.text_field :i_want_to %>
   <br/>
   <%= f.label :business_value %>
-  <%= f.number_field :business_value %>
+  <%= f.number_field :business_value, in: 1..5 %>
   <br/>
   <%= f.label :complexity_value %>
-  <%= f.number_field :complexity_value %>
+  <%= f.number_field :complexity_value, in: 1..5 %>
   <br/>
   <%= f.submit 'Save' %>
 <% end %>

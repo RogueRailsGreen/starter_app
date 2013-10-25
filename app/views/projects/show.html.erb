@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Project:&nbsp;</strong>
   <%= @project.name %>
 </p>
 
@@ -9,6 +9,16 @@
   <strong>Description:</strong>
   <%= @project.description %>
 </p>
+
+<%= pluralize( @project.stories.count, 'Story' ) %>
+
+<%= link_to 'Add Story', new_story_path( project_id: @project.id ) %>
+
+<% @project.stories.each do |story| %>
+  <div class="story">
+  	<%= story_summary( story ) %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

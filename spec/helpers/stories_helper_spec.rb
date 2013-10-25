@@ -11,5 +11,20 @@ require 'spec_helper'
 #   end
 # end
 describe StoriesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:mock_story) { Struct.new( :i_want_to, :in_order_to, :as_a ).new( 'Foo', 'Bar', 'Bam' ) }
+  
+  describe "#story_summary" do
+    it "should build a continuous string from a story" do
+      result = helper.story_summary( mock_story )
+
+      result.should include( "In order to" )
+      result.should include( "as a" )
+      result.should include( "I want to" )
+      result.should include( "Foo" )
+      result.should include( "Bar" )
+      result.should include( "Bam" )
+    end
+    
+  end
 end

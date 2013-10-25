@@ -11,6 +11,10 @@ Then(/^I should see "(.*?)"$/) do |text|
   page.should have_content( text )
 end
 
+Then(/^I should be on "(.*?)"$/) do |url|
+  page.current_path.should eq(url)
+end
+
 When(/^I click "(.*?)"$/) do |link_text|
   click_on link_text
 end

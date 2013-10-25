@@ -16,3 +16,5 @@ Scenario: Comment on a Story
 
 Scenario: List Comments for a Story
   Given a comment exists with story: the story
+  When I am on the story detail page
+  Then I should see "Body"

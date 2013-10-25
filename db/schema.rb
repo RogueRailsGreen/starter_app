@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131024220608) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status_id"
+    t.integer  "project_id"
   end
 
 end

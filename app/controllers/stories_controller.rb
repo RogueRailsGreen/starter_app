@@ -1,13 +1,18 @@
 class StoriesController < ApplicationController
 
   def new
-    @story = Story.new
+    @story = Story.new(story_params)
+    @story.project = Project.find_by_id(params[:project_id])
+
+    unless @story.project
+      redirect_to projects_path and return
+    end
   end
 
   def create
    @story = Story.create(story_params)
    if @story.errors.empty?
-     redirect_to new_story_path 
+     redirect_to projects_path and return
    else
      render :new
    end
@@ -30,6 +35,7 @@ class StoriesController < ApplicationController
   private
 
   def story_params
-    params[:story].permit(:in_order_to, :as_a, :i_want_to, :status_id)
+    params[:story].permit(:in_order_to, :as_a, :i_want_to, :status_id, :project_id)
   end  
 end
+

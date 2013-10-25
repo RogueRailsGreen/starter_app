@@ -3,16 +3,28 @@ Feature: Create Story
 	As a user
 	I want to create a story 
 
-Scenario: Add a New Story
+Background:
+	Given a project exists with name: "Foo", description: "Bar"
+
+Scenario: Attempt to add a Story without a Project ID
 	Given I visit "/stories/new"
+	Then I should be on "/projects"
+	And I should see "Listing projects"
+
+Scenario: Add a New Story
+	Given I visit "/projects"
+	And I click "Show"
+	And I click "Add Story"
 	When I fill in "In order to" with "assist in the organization of stories"
 	And I fill in "As a" with "user"
 	And I fill in "I want to" with "create a story"
 	And I click "Save"
 	Then there is 1 story
 
-Scenario: Attempt to Add Invalid Story	
-	Given I visit "/stories/new"
+Scenario: Attempt to Add Invalid Story	( default project )
+	Given I visit "/projects"
+	And I click "Show"
+	And I click "Add Story"
 	When I fill in "In order to" with "assist in the organization of stories"
 	And I fill in "As a" with "user"
 	And I click "Save"

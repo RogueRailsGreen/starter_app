@@ -17,4 +17,3 @@ Feature: Project Management
     Then I should see "Project was successfully created"
     And I should see "sample project"
     And I should see "A project ... the Larch"
-

@@ -31,7 +31,8 @@ config/database.yml
 *.rspec
 
 # Ignore Sublime Project files
-*.sublime-project
+*.sublime-*
+*.swp
 
 Vagrantfile.nathan
 

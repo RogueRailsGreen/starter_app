@@ -3,8 +3,12 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
+      <th>
+        <%= link_to 'Name', projects_path( sort_field: 'name', sort_direction: @name_dirn) %>
+      </th>
+      <th>
+        <%= link_to 'Description', projects_path( sort_field: 'description', sort_direction: @description_dirn)%>
+      </th>
       <th></th>
       <th></th>
       <th></th>

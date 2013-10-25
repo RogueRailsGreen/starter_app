@@ -35,7 +35,11 @@ class StoriesController < ApplicationController
   private
 
   def story_params
-    params[:story].permit(:in_order_to, :as_a, :i_want_to, :status_id, :project_id)
+    if params[:story]
+      params[:story].permit(:in_order_to, :as_a, :i_want_to, :status_id, :project_id)
+    else
+      {}
+    end
   end  
 end
 

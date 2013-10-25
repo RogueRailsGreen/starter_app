@@ -4,7 +4,8 @@ Feature: Story Status
   I want to be able to assign a status to a story
 
 Background:
-  Given I have a story
+  Given a project exists with name: "Foo", description: "Bar"
+  And I have a story on project "Foo"
   And I have a status with the name "started"
   And I have a status with the name "unstarted"
   And I am on the edit screen

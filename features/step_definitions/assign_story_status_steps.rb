@@ -1,5 +1,5 @@
-Given(/^I have a story$/) do
-  @story = FactoryGirl.create(:story)
+Given(/^I have a story on project "(.*?)"$/) do |project_name|
+  @story = FactoryGirl.create(:story, project: Project.find_by_name(project_name))
 end
 
 Given(/^I am on the edit screen$/) do

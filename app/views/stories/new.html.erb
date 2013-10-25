@@ -11,6 +11,8 @@
   <%= f.label :status %>
   <%= f.select :status_id, @statuses %>
   <br/>
+  <%= f.hidden_field :project_id %>
+  <br/>
   <%= f.label :in_order_to %>
   <%= f.text_field :in_order_to %>
   <br/>
@@ -20,7 +22,11 @@
   <%= f.label :i_want_to %>
   <%= f.text_field :i_want_to %>
   <br/>
-  <%= f.hidden_field :project_id %>
+  <%= f.label :business_value %>
+  <%= f.number_field :business_value %>
+  <br/>
+  <%= f.label :complexity_value %>
+  <%= f.number_field :complexity_value %>
   <br/>
   <%= f.submit 'Save' %>
 <% end %>

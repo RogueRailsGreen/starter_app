@@ -6,6 +6,10 @@ Given(/^I am on the edit screen$/) do
   visit edit_story_path(@story)
 end
 
+Given(/^I clear all statuses$/) do
+  Status.delete_all
+end
+
 Given(/^I have a status with the name "(.*?)"$/) do |status_name|
   FactoryGirl.create(:status, name: status_name)
 end

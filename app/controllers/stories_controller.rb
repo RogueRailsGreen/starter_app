@@ -12,12 +12,13 @@ class StoriesController < ApplicationController
   end
 
   def create
-   @story = Story.create(story_params)
-   if @story.errors.empty?
-     redirect_to( project_path( @story.project ), flash: { notice: 'Story was successfully created.' } ) and return
-   else
-     render :new
-   end
+    @story = Story.create(story_params)
+    if @story.errors.empty?
+      redirect_to( project_path( @story.project ), flash: { notice: 'Story was successfully created.' } ) and return
+    else
+      @statuses = Status.all.collect { |status| [status.name, status.id] }
+      render :new
+    end
   end
 
   def edit
@@ -30,6 +31,7 @@ class StoriesController < ApplicationController
     if @story.update_attributes(story_params)
       redirect_to( project_path( @story.project ), flash: { notice: 'Story was successfully updated.' } )
     else
+      @statuses = Status.all.collect { |status| [status.name, status.id] }
       render :edit
     end
   end

@@ -10,7 +10,7 @@ Background:
 
 Scenario: Comment on a Story
   When I click on "Add Comment"
-  And I fill in "comment" with "This is Terrible!"
+  And I fill in "comment[body]" with "This is Terrible!"
   And I click on "Save"
   Then I should see "Comment was successfully created."
 

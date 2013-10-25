@@ -10,6 +10,7 @@
   <%= @story.status.name %>
 </p>
 
+<strong>Comments:&nbsp;</strong><%= link_to 'Add Comment', new_story_comment_path( @story ) %>
 
 <%= link_to 'Edit', edit_story_path( @story ) %> |
 <%= link_to 'Back to Project', project_path( @story.project ) %>
